@@ -5,6 +5,11 @@ class Solution {
         int capacity=0;
         
         while(l<r){
+            /*
+             * there is a longer bar to the right
+             * of this left bar
+             * therefore, compute on left
+            */
             if(height[l]<height[r]){
                 if(left_max<height[l])
                     left_max = height[l];
