@@ -1,5 +1,11 @@
 class BoundedBlockingQueue {
+    //Final for arrays means only the array is final
+    //not the elements
+    // because array elements are references, theses refs
+    // are constant, but values vary
     private final int[] queue;
+    //Volatile suggests don't store in cache
+    //It will be used by multiple threads
     private volatile int size = 0;
     private int wp = 0, rp = 0;
     Semaphore enqSem, deqSem, lockSem;
