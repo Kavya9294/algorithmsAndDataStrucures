@@ -1,0 +1,34 @@
+class FooBar {
+    private int n;
+
+    public FooBar(int n) {
+        this.n = n;
+    }
+    private volatile boolean isFoo = true;
+
+    public synchronized void foo(Runnable printFoo) throws InterruptedException {
+        
+        for (int i = 0; i < n; i++) {
+            if(!isFoo){
+                wait();
+            }
+            isFoo = false;
+        	// printFoo.run() outputs "foo". Do not change or remove this line.
+        	printFoo.run();
+            notifyAll();
+        }
+    }
+
+    public synchronized void bar(Runnable printBar) throws InterruptedException {
+        
+        for (int i = 0; i < n; i++) {
+            if(isFoo){
+                wait();
+            }
+            isFoo = true;
+            // printBar.run() outputs "bar". Do not change or remove this line.
+        	printBar.run();
+            notifyAll();
+        }
+    }
+}
