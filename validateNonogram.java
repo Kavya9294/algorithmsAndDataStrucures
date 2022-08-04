@@ -8,7 +8,7 @@
 // validateNonogram(matrix1, rows1_1, columns1_1) => True
 
 import java.util.*;
-
+  
 public class MyClass {
     public static void validateNonogram(int[][] matrix, int[][] rows, int[][] cols){
         boolean rowFlag = validRow(matrix,rows);
